@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toonflix/widgets/button.dart';
-import 'package:toonflix/widgets/currency_card.dart';
+import 'package:toonflix/widgets/challenge_card.dart';
 
 void main() {
   runApp(const App());
@@ -15,133 +14,163 @@ class App extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color(0xFF181818),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 80,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 80,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
                 ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                    Container(
+                      width: 80,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        image: const DecorationImage(
+                          image: AssetImage('assets/fable.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const Text(
+                      '+',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 45,
+                          fontWeight: FontWeight.w600),
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        'MONDAY 16',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: 450,
+                    height: 50,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          'Hey, Selena',
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        const Text(
+                          'TODAY',
                           style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.w600,
                             color: Colors.white,
-                            fontSize: 28,
-                            fontWeight: FontWeight.w800,
                           ),
                         ),
-                        Text(
-                          'Welcome back',
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          '·',
+                          textAlign: TextAlign.start,
                           style: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 0.8),
-                            fontSize: 18,
+                            fontSize: 50,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF9B2A72),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        SizedBox(
+                          child: Text(
+                            '17  18  19  2',
+                            style: TextStyle(
+                              fontSize: 40,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white.withOpacity(0.6),
+                            ),
                           ),
                         ),
                       ],
                     ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Text(
-                  'Total Balance',
-                  style: TextStyle(
-                    fontSize: 22,
-                    color: Colors.white.withOpacity(0.8),
                   ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                const Text(
-                  '\$5 194 382',
-                  style: TextStyle(
-                    fontSize: 48,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Button(
-                      text: 'Transfer',
-                      bgColor: Color(0xFFF1B33B),
-                      textColor: Colors.black,
-                    ),
-                    Button(
-                      text: 'Request',
-                      bgColor: Color(0xFF1F2123),
-                      textColor: Colors.white,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 100,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Wallets',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 36,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Text(
-                      'View All',
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
-                        fontSize: 18,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const CurrencyCard(
-                  name: 'Euro',
-                  code: 'EUR',
-                  amount: '6 248',
-                  icon: Icons.euro_rounded,
-                  isInverted: false,
-                  order: 0,
-                ),
-                const CurrencyCard(
-                  name: 'Bitcoin',
-                  code: 'BTC',
-                  amount: '9 999',
-                  icon: Icons.currency_bitcoin_rounded,
-                  isInverted: true,
-                  order: 1,
-                ),
-                const CurrencyCard(
-                  name: 'Dollar ',
-                  code: 'USD',
-                  amount: '428',
-                  icon: Icons.attach_money_outlined,
-                  isInverted: false,
-                  order: 2,
-                ),
-              ],
-            ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              const ChallengeCard(
+                bNum1: '11',
+                bNum2: '12',
+                sNum1: '30',
+                sNum2: '20',
+                uTitle: 'DESIGN',
+                dTitle: 'MEETING',
+                name0: '',
+                name1: 'ALEX',
+                name2: 'HELENA',
+                name3: 'NANA',
+                colors: 0,
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              const ChallengeCard(
+                bNum1: '12',
+                bNum2: '14',
+                sNum1: '35',
+                sNum2: '10',
+                uTitle: 'DAILY',
+                dTitle: 'PROJECT',
+                name0: '',
+                name1: 'RICHARD',
+                name2: 'CIRY',
+                name3: '+4',
+                colors: 1,
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              const ChallengeCard(
+                bNum1: '15',
+                bNum2: '16',
+                sNum1: '00',
+                sNum2: '30',
+                uTitle: 'WEEKLY',
+                dTitle: 'PLANNING',
+                name0: '',
+                name1: 'DEN',
+                name2: 'NANA',
+                name3: 'MARK',
+                colors: 2,
+              ),
+            ],
           ),
         ),
       ),
